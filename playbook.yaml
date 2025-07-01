@@ -1,0 +1,11 @@
+- name: add user for system and make for hi root
+  hosts: myhosts
+  tasks:
+    - name: add user in system
+      ansible.builtin.user:
+        name: Bob
+        password: '!'
+        sudo: yes
+    - name: messeng
+      ansible.builtin.debug:
+        msg: Hello World
