@@ -1,12 +1,14 @@
 - name: add user for system and make for hi root
   hosts: myhosts
   become: yes
+  vars_files:
+    - user
   tasks:
     - name: add user in system
       ansible.builtin.user:
-        name: Bob
-        password: cot 
-        groups: sudo
+        name: "{{user}}"
+        password: "{{pass}}"
+        groups: "{{group}}"
     - name: messeng
       ansible.builtin.debug:
         msg: Hello World
