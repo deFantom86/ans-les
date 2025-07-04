@@ -8,7 +8,9 @@
       ansible.builtin.user:
         name: "{{user}}"
         password: "{{pass}}"
+        append: true
         groups: "{{group}}"
-    - name: messeng
-      ansible.builtin.debug:
-        msg: Hello World
+        create_home: yes
+
+    - name: add sh key to login system
+
