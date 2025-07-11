@@ -12,5 +12,4 @@
         groups: "{{group}}"
         create_home: yes
 
-    - name: add sh key to login system
 
