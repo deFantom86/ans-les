@@ -1,0 +1,22 @@
+- name: use ufw with parametr
+  hosts: myhosts
+  become: yes
+  vars_files:
+    - user
+  tasks:
+    - name: Enables the firewall, which by default rejects all incoming connections.
+      community.general.ufw:
+        state: enabled
+        policy: deny
+    - name: Enables connection logging with *medium* logging level.
+      community.general.ufw:
+        logging: 'medium'
+    - name: Enables the port that will be used for SSH connection.
+      community.general.ufw:
+        rule: allow
+        port: "{{port_ssh}}"
+    - name: Opens ports from the specified range.
+      community.general.ufw: 
+        rule: allow
+        port: 60000:61000
+        proto: tcp
