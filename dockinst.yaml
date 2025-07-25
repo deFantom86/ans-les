@@ -1,5 +1,5 @@
 - name: install doxker from repo
-  hosts: myhosts
+  hosts: myserver
   become: yes
   vars_files:
     - user
